@@ -91,7 +91,6 @@ consultar3();
 
 
 async function awaitPromises(a) {
-    debugger
     const promise1 = await promesa1(a).then((result) => "Promesa 1 resuelta").catch((error) => "Promesa 1 rechazada"); 
     const promise2 = await promesa2(a).then((result) => "Promesa 2 resuelta").catch((error) => "Promesa 2 rechazada");
     const promise3 = await promesa3(a).then((result) => "Promesa 3 resuelta").catch((error) => "Promesa 3 rechazada");
