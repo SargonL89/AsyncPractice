@@ -70,7 +70,6 @@ function buscarElementos() {
     return filtrados;
 }
 
-
 function mostrarResultados(x) {
     const tableBody = document.getElementById('tableBody')
 
@@ -89,3 +88,67 @@ function mostrarResultados(x) {
 consultar();
 consultar2();
 consultar3();
+
+
+async function awaitPromises(a) {
+    debugger
+    const promise1 = await promesa1(a).then((result) => "Promesa 1 resuelta").catch((error) => "Promesa 1 rechazada"); 
+    const promise2 = await promesa2(a).then((result) => "Promesa 2 resuelta").catch((error) => "Promesa 2 rechazada");
+    const promise3 = await promesa3(a).then((result) => "Promesa 3 resuelta").catch((error) => "Promesa 3 rechazada");
+    const promise4 = await promesa4(a).then((result) => "Promesa 4 resuelta").catch((error) => "Promesa 4 rechazada");
+    const promise5 = await promesa5(a).then((result) => "Promesa 5 resuelta").catch((error) => "Promesa 5 rechazada");
+
+    const array = [];
+    array.push(promise1, promise2, promise3, promise4, promise5);
+    console.log(array)
+}
+
+function promesa1(x) {
+    return new Promise((resolve, reject) => {
+        if (x % 2 === 0) {
+            resolve();
+        } else {
+            reject();
+        }
+    })
+}
+
+function promesa2(x) {
+    return new Promise((resolve, reject) => {
+        if (x * 5 > 100) {
+            resolve();
+        } else {
+            reject();
+        }
+    })
+}
+
+function promesa3(x) {
+    return new Promise((resolve, reject) => {
+        if (x * 5 < 100) {
+            resolve();
+        } else {
+            reject();
+        }
+    })
+}
+
+function promesa4(x) {
+    return new Promise((resolve, reject) => {
+        if (x + 100 >= 200) {
+            resolve();
+        } else {
+            reject();
+        }
+    })
+}
+
+function promesa5(x) {
+    return new Promise((resolve, reject) => {
+        if (x - 50 < 10) {
+            resolve();
+        } else {
+            reject();
+        }
+    })
+}
