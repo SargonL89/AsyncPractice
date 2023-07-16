@@ -91,60 +91,22 @@ consultar3();
 
 
 async function awaitPromises(a) {
-    const promise1 = await promesa1(a).then((result) => "Promesa 1 resuelta").catch((error) => "Promesa 1 rechazada"); 
-    const promise2 = await promesa2(a).then((result) => "Promesa 2 resuelta").catch((error) => "Promesa 2 rechazada");
-    const promise3 = await promesa3(a).then((result) => "Promesa 3 resuelta").catch((error) => "Promesa 3 rechazada");
-    const promise4 = await promesa4(a).then((result) => "Promesa 4 resuelta").catch((error) => "Promesa 4 rechazada");
-    const promise5 = await promesa5(a).then((result) => "Promesa 5 resuelta").catch((error) => "Promesa 5 rechazada");
+    debugger
+    const promise1 = await promesa1(a, '%', 2, '===', 0).then((result) => "Promesa 1 resuelta").catch((error) => "Promesa 1 rechazada"); 
+    const promise2 = await promesa1(a, '*', 5, '>', 100).then((result) => "Promesa 2 resuelta").catch((error) => "Promesa 2 rechazada");
+    const promise3 = await promesa1(a, '*', 5, '<', 100).then((result) => "Promesa 3 resuelta").catch((error) => "Promesa 3 rechazada");
+    const promise4 = await promesa1(a, '+', 100, '>=', 200).then((result) => "Promesa 4 resuelta").catch((error) => "Promesa 4 rechazada");
+    const promise5 = await promesa1(a, '-', 50, '<', 10).then((result) => "Promesa 5 resuelta").catch((error) => "Promesa 5 rechazada");
 
     const array = [];
     array.push(promise1, promise2, promise3, promise4, promise5);
     console.log(array)
 }
 
-function promesa1(x) {
+// El uso de eval() se considera generalmente una práctica riesgosa y se recomienda evitarlo en la mayoría de los casos debido a las posibles vulnerabilidades de seguridad que puede introducir.
+function promesa1(x, operador, y, comparador, z) {
     return new Promise((resolve, reject) => {
-        if (x % 2 === 0) {
-            resolve();
-        } else {
-            reject();
-        }
-    })
-}
-
-function promesa2(x) {
-    return new Promise((resolve, reject) => {
-        if (x * 5 > 100) {
-            resolve();
-        } else {
-            reject();
-        }
-    })
-}
-
-function promesa3(x) {
-    return new Promise((resolve, reject) => {
-        if (x * 5 < 100) {
-            resolve();
-        } else {
-            reject();
-        }
-    })
-}
-
-function promesa4(x) {
-    return new Promise((resolve, reject) => {
-        if (x + 100 >= 200) {
-            resolve();
-        } else {
-            reject();
-        }
-    })
-}
-
-function promesa5(x) {
-    return new Promise((resolve, reject) => {
-        if (x - 50 < 10) {
+        if (eval(`${x} ${operador} ${y} ${comparador} ${z}`)) {
             resolve();
         } else {
             reject();
